@@ -38,7 +38,7 @@ function AuthContent() {
 
         if (session && isMounted.current && !isNavigating.current) {
           isNavigating.current = true;
-          router.replace('/dashboard');
+          router.replace(`/cobranca${refCode ? `?ref=${refCode}` : ''}`);
         } else if (isMounted.current) {
           setLoading(false);
         }
@@ -61,7 +61,7 @@ function AuthContent() {
         // Pequeno delay para garantir que a sessão está completamente estabelecida
         setTimeout(() => {
           if (isMounted.current) {
-            router.replace('/dashboard');
+            router.replace(`/cobranca${refCode ? `?ref=${refCode}` : ''}`);
           }
         }, 100);
       }
